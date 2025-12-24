@@ -1,0 +1,8 @@
+[general]
+refresh_rate = 1000
+
+[lua]
+rules_dir = "lua/rules"
+
+[ui]
+show_processes = true
