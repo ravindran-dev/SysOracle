@@ -20,7 +20,7 @@ use crate::{
 pub struct App {
     system: System,
     lua: LuaEngine,
-    selected_proc: usize, // 👈 process selection index
+    selected_proc: usize, 
 }
 
 impl App {
@@ -41,14 +41,14 @@ impl App {
         let mut terminal = Terminal::new(backend)?;
 
         loop {
-            // ---- Collect metrics
+          
             let metrics = Metrics::collect(&mut self.system);
             let processes: Vec<ProcInfo> = metrics::top_processes(&self.system, 20);
 
-            // ---- Lua rules
+            
             let _ = self.lua.execute(&metrics);
 
-            // ---- Draw UI
+      
             terminal.draw(|f| {
                 tui::draw(
                     f,
@@ -58,7 +58,6 @@ impl App {
                 );
             })?;
 
-            // ---- Input handling
             if event::poll(Duration::from_millis(800))? {
                 if let Event::Key(key) = event::read()? {
                     match key.code {
@@ -77,7 +76,7 @@ impl App {
                         }
 
                         KeyCode::Char('r') => {
-                            // Lua rules auto-reload from directory
+                          
                         }
 
                         _ => {}

@@ -1,6 +1,6 @@
 use sysinfo::System;
 
-/* ===================== SYSTEM METRICS ===================== */
+
 
 #[derive(Clone)]
 pub struct Metrics {
@@ -26,7 +26,7 @@ impl Metrics {
     }
 }
 
-/* ===================== PROCESS INFO ===================== */
+
 
 #[derive(Clone)]
 pub struct ProcInfo {

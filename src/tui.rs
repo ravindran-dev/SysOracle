@@ -47,7 +47,7 @@ pub fn draw(
         main[1],
     );
 
-    // ── Processes
+
     draw_processes(frame, main[2], procs, selected);
 
     // ── Alerts
@@ -60,9 +60,7 @@ pub fn draw(
         main[3],
     );
 
-    // ── Footer (THIS IS THE LAST RECTANGLE)
-    // ── Footer (Status bar)
-    // ── Footer / Status Bar (btop-style palette)
+    
     frame.render_widget(
         Paragraph::new(
             " MODE: PROC | ↑↓ Select | k Kill | r Reload | q Quit "
@@ -74,8 +72,8 @@ pub fn draw(
         )
         .style(
             Style::default()
-                .fg(Color::Cyan)          // Soft accent text
-                .bg(Color::Rgb(20, 20, 20)) // Dark background (not pure black)
+                .fg(Color::Cyan)          
+                .bg(Color::Rgb(20, 20, 20)) 
         ),
         main[4],
     );
@@ -83,7 +81,7 @@ pub fn draw(
 
 }
 
-/* ===================== CPU ===================== */
+
 
 fn draw_cpu(frame: &mut Frame, area: Rect, metrics: &Metrics) {
     let cpu = metrics.cpu.clamp(0.0, 100.0) as u16;
@@ -108,7 +106,7 @@ fn draw_cpu(frame: &mut Frame, area: Rect, metrics: &Metrics) {
     frame.render_widget(gauge, area);
 }
 
-/* ===================== MEMORY ===================== */
+
 
 fn draw_mem(frame: &mut Frame, area: Rect, metrics: &Metrics) {
     let percent =
@@ -138,7 +136,7 @@ fn draw_mem(frame: &mut Frame, area: Rect, metrics: &Metrics) {
     frame.render_widget(gauge, area);
 }
 
-/* ===================== PROCESSES ===================== */
+
 
 fn draw_processes(
     frame: &mut Frame,
